@@ -21,7 +21,7 @@
 ## نصب
 
 ```bash
-sudo bash install.sh
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Amirwixa/My-Vpn-Script/refs/heads/main/install.sh)" && sudo bhmgr
 ```
 
 یا مستقیم (بعد از آپلود `bhmgr.py` روی گیت‌هاب خودتان):
