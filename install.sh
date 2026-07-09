@@ -7,7 +7,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 INSTALL_DIR="/usr/local/lib/backhaul-manager"
-BIN_FILE="/usr/local/bin/bhmgr"
+BIN_LINK="/usr/local/bin/bhmgr"
 SCRIPT_URL="https://raw.githubusercontent.com/Amirwixa/My-Vpn-Script/refs/heads/main/bhmgr.py"
 
 command -v python3 >/dev/null 2>&1 || {
@@ -16,13 +16,9 @@ command -v python3 >/dev/null 2>&1 || {
 
 mkdir -p "$INSTALL_DIR"
 
-echo "Downloading manager..."
 curl -fsSL "$SCRIPT_URL" -o "$INSTALL_DIR/bhmgr.py"
 
-# ساخت فایلِ اجراکننده (به جای لینک ساده)
-echo '#!/bin/bash' > "$BIN_FILE"
-echo 'python3 /usr/local/lib/backhaul-manager/bhmgr.py' >> "$BIN_FILE"
-chmod +x "$BIN_FILE"
+chmod +x "$INSTALL_DIR/bhmgr.py"
+ln -sf "$INSTALL_DIR/bhmgr.py" "$BIN_LINK"
 
-echo "Installation complete!"
 /usr/local/bin/bhmgr
