@@ -8,8 +8,9 @@ fi
 
 INSTALL_DIR="/usr/local/lib/backhaul-manager"
 BIN_LINK="/usr/local/bin/bhmgr"
-# IMPORTANT: Update this URL to your raw GitHub file path
-SCRIPT_URL="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/bhmgr.py"
+
+# آدرس خام فایل پایتون خودتان
+SCRIPT_URL="https://raw.githubusercontent.com/Amirwixa/My-Vpn-Script/refs/heads/main/bhmgr.py"
 
 command -v python3 >/dev/null 2>&1 || {
     echo "Installing python3..."
@@ -18,11 +19,14 @@ command -v python3 >/dev/null 2>&1 || {
 
 mkdir -p "$INSTALL_DIR"
 
-echo "Downloading manager..."
+echo "Downloading Backhaul Manager..."
 curl -fsSL "$SCRIPT_URL" -o "$INSTALL_DIR/bhmgr.py"
 
+# مهم: shebang + مجوز اجرا
 chmod +x "$INSTALL_DIR/bhmgr.py"
+
+# symlink
 ln -sf "$INSTALL_DIR/bhmgr.py" "$BIN_LINK"
 
-echo "Installation complete!"
-echo "Run 'sudo bhmgr' to start."
+echo "✅ Installation complete!"
+echo "Run with:   sudo bhmgr"
