@@ -1,32 +1,37 @@
 #!/bin/bash
+# نصب‌کننده‌ی Backhaul Manager
+# استفاده: sudo bash install.sh
+
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
-    echo "Please run as root."
+    echo "لطفاً این اسکریپت را با sudo اجرا کنید."
     exit 1
 fi
 
 INSTALL_DIR="/usr/local/lib/backhaul-manager"
 BIN_LINK="/usr/local/bin/bhmgr"
-
-# آدرس خام فایل پایتون خودتان
-SCRIPT_URL="https://raw.githubusercontent.com/Amirwixa/My-Vpn-Script/refs/heads/main/bhmgr.py"
+SCRIPT_URL="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/bhmgr.py"
 
 command -v python3 >/dev/null 2>&1 || {
-    echo "Installing python3..."
+    echo "در حال نصب python3..."
     apt-get update -y && apt-get install -y python3
 }
 
 mkdir -p "$INSTALL_DIR"
 
-echo "Downloading Backhaul Manager..."
-curl -fsSL "$SCRIPT_URL" -o "$INSTALL_DIR/bhmgr.py"
+if [ -f "./bhmgr.py" ]; then
+    cp ./bhmgr.py "$INSTALL_DIR/bhmgr.py"
+else
+    echo "در حال دانلود bhmgr.py..."
+    curl -fsSL "$SCRIPT_URL" -o "$INSTALL_DIR/bhmgr.py"
+fi
 
-# مهم: shebang + مجوز اجرا
 chmod +x "$INSTALL_DIR/bhmgr.py"
-
-# symlink
 ln -sf "$INSTALL_DIR/bhmgr.py" "$BIN_LINK"
 
-echo "✅ Installation complete!"
-echo "Run with:   sudo bhmgr"
+echo "نصب کامل شد!"
+echo "برای اجرا کافیست دستور زیر را بزنید:"
+echo ""
+echo "    sudo bhmgr"
+echo ""
