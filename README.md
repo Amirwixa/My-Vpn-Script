@@ -27,7 +27,7 @@ sudo bash install.sh
 یا مستقیم (بعد از آپلود `bhmgr.py` روی گیت‌هاب خودتان):
 
 ```bash
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/USER/REPO/main/install.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Amirwixa/My-Vpn-Script/refs/heads/main/install.sh)"
 ```
 
 ## استفاده
