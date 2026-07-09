@@ -55,10 +55,3 @@ sudo bhmgr
 /etc/systemd/system/backhaul-<name>.service   ← سرویس هر تانل
 /etc/systemd/system/backhaul-<name>-reset.timer  ← تایمر ری‌استارت (اختیاری)
 ```
-
-## نکته درباره‌ی آدرس دانلود در install.sh
-
-مقدار `SCRIPT_URL` در `install.sh` باید به ریپوی گیت‌هاب خودتان اشاره کند (بعد از
-اینکه `bhmgr.py` را در ریپوی خودتان آپلود کردید). اگر فقط می‌خواهید محلی تست کنید،
-کافیست هر دو فایل `bhmgr.py` و `install.sh` را کنار هم روی سرور بگذارید و
-`sudo bash install.sh` را اجرا کنید — در این حالت از فایل محلی استفاده می‌کند.
