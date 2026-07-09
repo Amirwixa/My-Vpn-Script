@@ -11,7 +11,7 @@ fi
 
 INSTALL_DIR="/usr/local/lib/backhaul-manager"
 BIN_LINK="/usr/local/bin/bhmgr"
-SCRIPT_URL="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/bhmgr.py"
+SCRIPT_URL="https://raw.githubusercontent.com/Amirwixa/My-Vpn-Script/refs/heads/main/bhmgr.py"
 
 command -v python3 >/dev/null 2>&1 || {
     echo "در حال نصب python3..."
